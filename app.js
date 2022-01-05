@@ -4,11 +4,18 @@ const app = express();
 
 const port = 3000;
 
-app.get('/', (req, res) => {
-  const max = 1500;
-  const min = 0;
-  const RANDOM = Math.random() * (max - min) + min;
-  res.send(RANDOM);
+app.get('/:min/:max', (req, res) => {
+  const min = parseInt(req.params.min);
+  const max = parseInt(req.params.max);
+
+  if (isNaN(min) || isNaN(max)) {
+    res.status(400);
+    res.json({ error: 'Bad request.' });
+    return;
+  }
+
+  const random = (Math.random() * (max - min) + min).toFixed(0);
+  res.json({ random });
 });
 
 app.listen(port, () => {
