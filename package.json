@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/maryPopplns/express_RNG_API/issues"
   },
-  "homepage": "https://github.com/maryPopplns/express_RNG_API#readme"
+  "homepage": "https://github.com/maryPopplns/express_RNG_API#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
